@@ -43,11 +43,11 @@ def mergeSortedArrays(array1,array2,mergedArray,m,n):
     
     if(i==m):
         for l in range(j,n):
-            mergedArray.append(array2[j])
+            mergedArray.append(array2[l])
             k+=1
     else:
         for l in range(i,m):
-            mergedArray.append(array1[i])
+            mergedArray.append(array1[l])
             k+=1
 
     return mergedArray
