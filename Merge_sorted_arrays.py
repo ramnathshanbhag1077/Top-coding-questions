@@ -28,29 +28,32 @@ def findMinimumOfTwoNumbers(a,b):
 
 def mergeSortedArrays(array1,array2,mergedArray,m,n):
     i = j = k=0
+
+    arr1 = array1[0:m]
+
     while(i!=m and j!=n):
-        index = findMinimumOfTwoNumbers(array1[i],array2[j])
+        index = findMinimumOfTwoNumbers(arr1[i],array2[j])
         if(index=="i"):
-            mergedArray.append(array1[i])
+            mergedArray.append(arr1[i])
             k+=1
             i+=1
         else:
             mergedArray.append(array2[j])
             k+=1
             j+=1
-
-    print(mergedArray)
     
     if(i==m):
         for l in range(j,n):
-            mergedArray.append(array2[j])
+            mergedArray.append(array2[l])
             k+=1
     else:
         for l in range(i,m):
-            mergedArray.append(array1[i])
+            mergedArray.append(arr1[l])
             k+=1
 
-    return mergedArray
+    array1 = mergedArray.copy()
+    
+    return array1
 
 m,n = map(int,input().split())
 array1 = list(map(int,input().split()))
@@ -58,6 +61,3 @@ array2 = list(map(int,input().split()))
 mergedArray = []
 
 print(mergeSortedArrays(array1,array2,mergedArray,m,n))
-
-
-
